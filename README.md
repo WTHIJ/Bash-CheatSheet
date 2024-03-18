@@ -1,2 +1,9 @@
 # Bash-CheatSheet
-All of the bash commands you'll ever need
+
+## Bash Hello World
+
+```sh
+#!/usr/bin/env bash
+
+echo "Hello, World!" 
+```
