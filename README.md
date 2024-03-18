@@ -35,3 +35,21 @@ else
     echo "One for "$1", one for me."
 fi
 ```
+
+## Error Handling
+If the number of parameter passed is equal to 1, then the script will display a greetings message `Hello, Bob`.
+If the user didn't give any parameters of if he gave too many, the script will stop displaying an error message `Usage: error_handling.sh <person>` and exiting with status 1.
+**1** -> Error
+**0** -> Right behavior
+
+```bash
+#!/usr/bin/env bash
+
+if [ $# = 1 ]
+then
+    echo "Hello, "$1
+else
+    echo "Usage: error_handling.sh <person>"
+    exit 1
+fi
+```
