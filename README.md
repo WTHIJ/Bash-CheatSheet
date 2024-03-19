@@ -122,7 +122,8 @@ Inside the loop, the "acronym" variable is updated by appending the first charac
 ```bash
 acronym="$acronym${word:0:1}"
 ```
-Usage of `functions`, here we call the main function by writing `main "$@"`
+Usage of `functions`, here we call the main function by writing `main "$@"`.  
+We're searching to discover if the given number is an armstrong number.
 
 ```bash
 #!/usr/bin/env bash
