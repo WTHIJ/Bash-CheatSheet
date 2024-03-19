@@ -122,10 +122,5 @@ Inside the loop, the "acronym" variable is updated by appending the first charac
 ```bash
 acronym="$acronym${word:0:1}"
 ```
-After the loop finishes iterating through all words in the sentence, the script prints the final acronym by using the "echo" command:
-
-```bash
-echo "$acronym"
-```
 
 
