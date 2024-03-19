@@ -57,7 +57,8 @@ fi
 ## String comparison
 Comparison letter by letter between two strings. Applied with DNA sequences, it compares both strings to check if there are replicating errors between them.
 Entering the command `sh hamming.sh ATCGGG ATACGG` will output `2` as there are two letters differ from the strings.
-`lettre=${correct:i:1}` gets the letters from the *correct* string from the position `i` with a length of *1*. The syntax is : `$string:$position:$length`
+`lettre=${correct:i:1}` gets the letters from the *correct* string from the position `i` with a length of *1*.  
+The syntax is : `$string:$position:$length`
 ```bash
 #!/usr/bin/env bash
 
