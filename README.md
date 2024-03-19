@@ -54,7 +54,7 @@ else
 fi
 ```
 
-## String comparison
+## String manipulation
 Comparison letter by letter between two strings. Applied with DNA sequences, it compares both strings to check if there are replicating errors between them.
 Entering the command `sh hamming.sh ATCGGG ATACGG` will output `2` as there are two letters differ from the strings.
 `lettre=${correct:i:1}` gets the letters from the *correct* string from the position `i` with a length of *1*.  
@@ -90,6 +90,37 @@ else
     echo "Usage: hamming.sh <string1> <string2>"
     exit 1
 fi
+```
+
+This Bash script is designed to extract the acronym from a given sentence. Here's a detailed explanation of what each line does:  
+`#!/usr/bin/env bash`: This is called a shebang or hashbang, which tells the system that this file is a Bash script and specifies the interpreter to use when running the script.  
+`acronym=""`: Initializes an empty string variable named "acronym".  
+`sentence=${1//[^a-zA-Z']/ }`: Assigns the first argument passed to the script (i.e., the sentence) to a new variable called "sentence". The regular expression `/[^a-zA-Z']/` is used to remove all non-alphabetic characters from the string, leaving only words separated by spaces.  
+`sentence="${sentence^^}"`: Capitalizes all letters in the "sentence" variable using uppercase (i.e., converts to all caps).  
+The following loop starts with the for statement that iterates through each word in the "sentence":  
+
+```bash
+#!/usr/bin/env bash
+
+acronym=""
+sentence=${1//[^a-zA-Z\']/ }
+sentence="${sentence^^}"
+for word in $sentence
+do
+    acronym="$acronym${word:0:1}"
+done
+echo "$acronym"
+
+```
+
+```bash
+for word in $sentence
+do
+```
+Inside the loop, the "acronym" variable is updated by appending the first character (capitalized) of the current word to it:
+
+```bash
+acronym="$acronym${word:0:1}"
 ```
 
 
