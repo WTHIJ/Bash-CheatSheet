@@ -122,5 +122,29 @@ Inside the loop, the "acronym" variable is updated by appending the first charac
 ```bash
 acronym="$acronym${word:0:1}"
 ```
+Usage of `functions`, here we call the main function by writing `main "$@"`
+
+```bash
+#!/usr/bin/env bash
+
+main() {
+    number=$1
+    number_digits=${#number}
+    for ((i = 0 ; i < number_digits ; i++)); do
+        digit="${number:i:1}"
+        power=$(( digit ** number_digits ))
+        result=$(( result + power ))
+    done
+    
+    if [[ $result -eq $number ]]
+    then
+        echo "true"
+    else
+        echo "false"
+    fi
+}
+
+main "$@"
+```
 
 
