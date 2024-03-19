@@ -55,37 +55,39 @@ fi
 ```
 
 ## String comparison
+Comparison letter by letter between two strings. Applied with DNA sequences, it compares both strings to check if there are replicating errors between them.
+Entering the command `sh hamming.sh ATCGGG ATACGG` will output `2` as there are two letters differ from the strings.
 ```bash
 #!/usr/bin/env bash
 
-if [ $# = 1 ]
+correct="$1"
+param="$2"
+i=0
+erreur=0
+
+if [ $# == 2 ]
 then
-    if [ "$1" = 0 ]
+    if [ ${#correct} == ${#param} ]
     then
-        echo "Usage: raindrops.sh <number>"
+        for L in $(seq 1 ${#correct}); do
+            lettre=${correct:i:1}
+            lettreparam=${param:i:1}
+
+            if [ $lettre != $lettreparam ]
+            then
+                erreur=$(($erreur+1))
+            fi
+            i=$(($i + 1))
+        done
+        echo $erreur
+    else
+        echo "strands must be of equal length"
         exit 1
     fi
-    sentence=""
-    if [ $(($1 % 3)) == 0 ]
-    then
-        sentence=$sentence"Pling"
-    fi
-    if [ $(($1 % 5)) == 0 ]
-    then
-        sentence=$sentence"Plang"
-    fi
-    if [ $(($1 % 7)) == 0 ]
-    then
-        sentence=$sentence"Plong"
-    fi
-    if [ "$sentence" == "" ]
-    then
-        echo "$1"
-    else
-        echo $sentence
-    fi
 else
-    echo "Usage: raindrops.sh <number>"
+    echo "Usage: hamming.sh <string1> <string2>"
     exit 1
 fi
 ```
+
+
