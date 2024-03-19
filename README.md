@@ -122,7 +122,9 @@ Inside the loop, the "acronym" variable is updated by appending the first charac
 ```bash
 acronym="$acronym${word:0:1}"
 ```
-Usage of `functions`, here we call the main function by writing `main "$@"`.  
+## Functions  
+
+Usage of `functions`, here we call the main function by writing `main "$@"` which gives as a parameter to the fonction, the number you enter in the terminal.   
 We're searching to discover if the given number is an armstrong number.
 
 ```bash
